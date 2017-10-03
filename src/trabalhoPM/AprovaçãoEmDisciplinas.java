@@ -1,0 +1,41 @@
+package trabalhoPM;
+
+public class AprovaçãoEmDisciplinas {
+private final String [] disciplinasObrigatorias = {
+		"Administração Financeira",
+		"Álgebra Linear",
+		"Análise de Algoritmo",
+		"Análise de Sistemas",
+		"Análise Empresarial e Admin",
+		"Banco de Dados I",
+		"Banco de Dados II",
+		"Cálculo Diferenc. e Integral I",
+		"Cálculo Diferenc. e Integral II",
+		"Desenvolvimento de Páginas Web",
+		"Empreendedorismo",
+		"Estatística",
+		"Estruturas de Dados I",
+		"Estruturas de Dados II",
+		"Estruturas Discretas",
+		"Fund. de Sist. de Informação",
+		"Gerência de Proj. de Informat",
+		"Interação Humano Computador",
+		"Introdução à Lógica Computac",
+		"Linguag. Formais e Autômatos",
+		"Matemática Básica",
+		"Organização de Computadores",
+		"Probabilidade",
+		"Processos de Software",
+		"Programação Modular",
+		"Projeto de Graduação I",
+		"Projeto de Graduação II",
+		"Projeto e Construção de Sistemas",
+		"Projeto e Construção de Sistemas comSGBD",
+		"Redes de Computadores I",
+		"Redes de Computadores II",
+		"Sistemas Operacionais",
+		"Técnicas de Programação I",
+		"Técnicas de Programação II",
+		"Teorias e Práticas Discursivas"
+		};
+}
