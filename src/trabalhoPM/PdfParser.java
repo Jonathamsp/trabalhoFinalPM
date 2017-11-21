@@ -16,9 +16,16 @@ public class PdfParser{
 	}
 	public String[] getAllData() {
 		try {
+			String allText="";
 			reader = new PdfReader(fileName);
-			String allText = PdfTextExtractor.getTextFromPage(reader, 1);
+			int numberOfPages = reader.getNumberOfPages();
+			for (int i=1; i<= numberOfPages; i++) {
+				allText += PdfTextExtractor.getTextFromPage(reader, i);
+				}
 			String splittedString[]= allText.split("\n");
+			for (int i=0; i<splittedString.length;i++) {
+				splittedString[i] = splittedString[i].toUpperCase();
+			}
 			reader.close();
 			return splittedString;
 		}

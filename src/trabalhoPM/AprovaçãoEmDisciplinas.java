@@ -1,41 +1,101 @@
 package trabalhoPM;
 
 public class AprovaçãoEmDisciplinas {
+	String[] disciplinasHistorico;
+	
+	public AprovaçãoEmDisciplinas(String[] splittedString) {
+		disciplinasHistorico = splittedString;
+	}
+	
+	public int[] disciplinasAprovadas () {
+		int eletivas = 35;
+		int optativas = 39;
+		for (int j=0;j<disciplinasHistorico.length;j++) {
+			int controle = 0;
+			
+			if (disciplinasHistorico[j].contains("APROVADO")) {
+				for (int i=0;i<disciplinasObrigatorias.length;i++) {
+					if (disciplinasHistorico[j].contains(disciplinasObrigatorias[i])) {
+						disciplinasAprovadasReprovadas[i]=1;
+						controle = 1;}
+					}
+				if (controle ==0 && disciplinasHistorico[j].contains("TIN")) {
+					controle = 1;
+					disciplinasAprovadasReprovadas[optativas]=1;
+					if (optativas >=39&&optativas<=47) {
+					optativas++;}
+				}
+				else if (controle==0&&!disciplinasHistorico[j].contains("APROVADOS")) {
+					disciplinasAprovadasReprovadas[eletivas]=1;
+					if (eletivas>=35&&eletivas<=38) {
+						eletivas++;
+					}
+					}
+				}
+			if (disciplinasHistorico[j].contains("REPROVADO")) {
+				for (int i=0;i<disciplinasObrigatorias.length;i++) {
+					if (disciplinasHistorico[j].contains(disciplinasObrigatorias[i])&&disciplinasAprovadasReprovadas[i]!=1) {
+						disciplinasAprovadasReprovadas[i]=2;
+						controle = 1;}
+					}
+			}
+		}
+		return disciplinasAprovadasReprovadas;
+	}
+private int [] disciplinasAprovadasReprovadas = {
+		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+};
 private final String [] disciplinasObrigatorias = {
-		"Administração Financeira",
-		"Álgebra Linear",
-		"Análise de Algoritmo",
-		"Análise de Sistemas",
-		"Análise Empresarial e Admin",
-		"Banco de Dados I",
-		"Banco de Dados II",
-		"Cálculo Diferenc. e Integral I",
-		"Cálculo Diferenc. e Integral II",
-		"Desenvolvimento de Páginas Web",
-		"Empreendedorismo",
-		"Estatística",
-		"Estruturas de Dados I",
-		"Estruturas de Dados II",
-		"Estruturas Discretas",
-		"Fund. de Sist. de Informação",
-		"Gerência de Proj. de Informat",
-		"Interação Humano Computador",
-		"Introdução à Lógica Computac",
-		"Linguag. Formais e Autômatos",
-		"Matemática Básica",
-		"Organização de Computadores",
-		"Probabilidade",
-		"Processos de Software",
-		"Programação Modular",
-		"Projeto de Graduação I",
-		"Projeto de Graduação II",
-		"Projeto e Construção de Sistemas",
-		"Projeto e Construção de Sistemas comSGBD",
-		"Redes de Computadores I",
-		"Redes de Computadores II",
-		"Sistemas Operacionais",
-		"Técnicas de Programação I",
-		"Técnicas de Programação II",
-		"Teorias e Práticas Discursivas"
+		"ADMINISTRAÇÃO FINANCEIRA",
+		"ÁLGEBRA LINEAR",
+		"ANÁLISE DE ALGORITMO",
+		"ANÁLISE DE SISTEMAS",
+		"ANÁLISE EMPRESARIAL E ADMIN",
+		"BANCO DE DADOS I ",
+		"BANCO DE DADOS II",
+		"CÁLCULO DIFERENCIAL E INTEGRAL I ",
+		"CÁLCULO DIFERENCIAL E INTEGRAL II",
+		"DESENVOLVIMENTO DE PÁGINAS WEB",
+		"EMPREENDEDORISMO",
+		"ESTATÍSTICA",
+		"ESTRUTURAS DE DADOS I ",
+		"ESTRUTURAS DE DADOS II",
+		"ESTRUTURAS DISCRETAS",
+		"FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO",
+		"GERÊNCIA DE PROJ. DE INFORMAT",
+		"INTERAÇÃO HUMANO-COMPUTADOR",
+		"INTRODUÇÃO À LÓGICA COMPUTAC",
+		"LINGUAG. FORMAIS E AUTÔMATOS",
+		"MATEMÁTICA BÁSICA",
+		"ORGANIZAÇÃO DE COMPUTADORES",
+		"PROBABILIDADE",
+		"PROCESSOS DE SOFTWARE",
+		"PROGRAMAÇÃO MODULAR",
+		"PROJETO DE GRADUAÇÃO I ",
+		"PROJETO DE GRADUAÇÃO II",
+		"PROJETO E CONSTRUÇÃO DE SISTEMAS 4",
+		"PROJETO E CONSTRUÇÃO DE SISTEMAS COMSGBD",
+		"REDES DE COMPUTADORES I ",
+		"REDES DE COMPUTADORES II",
+		"SISTEMAS OPERACIONAIS",
+		"TÉCNICAS DE PROGRAMAÇÃO I ",
+		"TÉCNICAS DE PROGRAMAÇÃO II",
+		"TEORIAS E PRÁTICAS DISCURSIVAS",
+		"ELETIVA I ",
+		"ELETIVA II ",
+		"ELETIVA III",
+		"ELETIVA IV",
+		"OPTATIVA I ",
+		"OPTATIVA II ",
+		"OPTATIVA III ",
+		"OPTATIVA IV",
+		"OPTATIVA V ",
+		"OPTATIVA VI ",
+		"OPTATIVA VII ",
+		"OPTATIVA VIII ",
+		"ATIVIDADES CURRICULARES DE EXTENSÃO 1 ",
+		"ATIVIDADES CURRICULARES DE EXTENSÃO 2 ",
+		"ATIVIDADES CURRICULARES DE EXTENSÃO 3 ",
+		"ATIVIDADES CURRICULARES DE EXTENSÃO 4 "
 		};
 }
