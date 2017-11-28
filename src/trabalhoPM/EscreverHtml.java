@@ -7,7 +7,9 @@ public class EscreverHtml {
 	private FileWriter fWriter = null;
 	private BufferedWriter writer = null;
 	private String[] cores= new String[51];	
-	public EscreverHtml(int[] disciplinasAprovadasReprovadas) {
+	private boolean jubilacao, integralizacao, cursando, condicaoDeFormar;
+	private double CR;
+	public EscreverHtml(int[] disciplinasAprovadasReprovadas, boolean jubilacao, boolean integralizacao, boolean cursando, double CR, boolean condicaoDeFormar) {
 		for (int i =0; i<disciplinasAprovadasReprovadas.length; i++) {
 			if (disciplinasAprovadasReprovadas[i]==0) {
 				cores[i]="white";
@@ -19,6 +21,11 @@ public class EscreverHtml {
 				cores[i]="red";
 			}
 		}
+		this.jubilacao = jubilacao;
+		this.integralizacao = integralizacao;
+		this.cursando = cursando;
+		this.CR = CR;
+		this.condicaoDeFormar = condicaoDeFormar;
 	}
 	
 	
@@ -82,7 +89,7 @@ public class EscreverHtml {
 		    writer = new BufferedWriter(fWriter);
 		    writer.write("<!DOCTYPE html>\r\n" + 
 		    		"<html>\r\n" + 
-		    		"<body>\r\n" + 
+		    		"<head>\r\n" + 
 		    		"\r\n" + 
 		    		"<img src=\"grade_curricular.png\" style=\"width:800;height:800;position:absolute;top:0;left:0;bottom:0;right:0;\" />\n"+
 		    		"<svg xmlns = \"http://www.w3.org/2000/svg\" width=\"2000\" height=\"2000\" style =\"position:absolute\">\n");
@@ -91,8 +98,33 @@ public class EscreverHtml {
 		    writer.write(disciplinasAPintar[i]);
 		    }
 		    
-		    writer.write("</svg>\r\n" + 
-		    		"\r\n" + 
+		    writer.write("</svg></head><body>\r\n" + 
+		    		"\r\n");
+		    if (jubilacao) {
+		    	writer.write("<br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br> <br><p> VC TA JUBILADO</p>");
+		    }
+		    else {
+		    	writer.write("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br> <br><p>vc não ta jubilado ainda</p>");
+		    }
+		    if (integralizacao) {
+		    	writer.write("<p>vc precisa entregar plano de integralizacao, e deve ter nota acima de 5 nos períodos de integralizacao</p>");
+		    }else {
+		    	writer.write("<p>vc nao precisa entregar plano de integralizacao</p>");
+		    }
+		    if (cursando) {
+		    	writer.write("<p>vc tá cursando pelo menos 3</p>");
+		    }
+		    else {
+		    	writer.write("<p> vc deveria estar cursando 3</p>");
+		    }
+		    if (condicaoDeFormar) {
+		    	writer.write("<p>você vai se formar :)</p>");
+		    }
+		    else {
+		    	writer.write("<p> vc vai se formar, mas não dentro do tempo...</p>");
+		    }
+		    writer.write("<p> seu CR é "+CR+"</p>");
+		    writer.write(
 		    		"</body>\r\n" + 
 		    		"</html>\r\n" + 
 		    		"");

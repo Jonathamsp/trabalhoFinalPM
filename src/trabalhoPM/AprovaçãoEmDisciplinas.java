@@ -1,7 +1,64 @@
 package trabalhoPM;
 
 public class AprovaçãoEmDisciplinas {
-	String[] disciplinasHistorico;
+	private String[] disciplinasHistorico;
+	private int [] disciplinasAprovadasReprovadas = {
+			0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+	};
+	private double CR =0.0;
+	private final String [] disciplinasObrigatorias = {
+			"ADMINISTRAÇÃO FINANCEIRA",
+			"ÁLGEBRA LINEAR",
+			"ANÁLISE DE ALGORITMO",
+			"ANÁLISE DE SISTEMAS",
+			"ANÁLISE EMPRESARIAL E ADMIN",
+			"BANCO DE DADOS I ",
+			"BANCO DE DADOS II",
+			"CÁLCULO DIFERENCIAL E INTEGRAL I ",
+			"CÁLCULO DIFERENCIAL E INTEGRAL II",
+			"DESENVOLVIMENTO DE PÁGINAS WEB",
+			"EMPREENDEDORISMO",
+			"ESTATÍSTICA",
+			"ESTRUTURAS DE DADOS I ",
+			"ESTRUTURAS DE DADOS II",
+			"ESTRUTURAS DISCRETAS",
+			"FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO",
+			"GERÊNCIA DE PROJ. DE INFORMAT",
+			"INTERAÇÃO HUMANO-COMPUTADOR",
+			"INTRODUÇÃO À LÓGICA COMPUTAC",
+			"LINGUAG. FORMAIS E AUTÔMATOS",
+			"MATEMÁTICA BÁSICA",
+			"ORGANIZAÇÃO DE COMPUTADORES",
+			"PROBABILIDADE",
+			"PROCESSOS DE SOFTWARE",
+			"PROGRAMAÇÃO MODULAR",
+			"PROJETO DE GRADUAÇÃO I ",
+			"PROJETO DE GRADUAÇÃO II",
+			"PROJETO E CONSTRUÇÃO DE SISTEMAS 4",
+			"PROJETO E CONSTRUÇÃO DE SISTEMAS COMSGBD",
+			"REDES DE COMPUTADORES I ",
+			"REDES DE COMPUTADORES II",
+			"SISTEMAS OPERACIONAIS",
+			"TÉCNICAS DE PROGRAMAÇÃO I ",
+			"TÉCNICAS DE PROGRAMAÇÃO II",
+			"TEORIAS E PRÁTICAS DISCURSIVAS",
+			"ELETIVA I ",
+			"ELETIVA II ",
+			"ELETIVA III",
+			"ELETIVA IV",
+			"OPTATIVA I ",
+			"OPTATIVA II ",
+			"OPTATIVA III ",
+			"OPTATIVA IV",
+			"OPTATIVA V ",
+			"OPTATIVA VI ",
+			"OPTATIVA VII ",
+			"OPTATIVA VIII ",
+			"ATIVIDADES CURRICULARES DE EXTENSÃO 1 ",
+			"ATIVIDADES CURRICULARES DE EXTENSÃO 2 ",
+			"ATIVIDADES CURRICULARES DE EXTENSÃO 3 ",
+			"ATIVIDADES CURRICULARES DE EXTENSÃO 4 "
+			};
 	
 	public AprovaçãoEmDisciplinas(String[] splittedString) {
 		disciplinasHistorico = splittedString;
@@ -36,66 +93,21 @@ public class AprovaçãoEmDisciplinas {
 				for (int i=0;i<disciplinasObrigatorias.length;i++) {
 					if (disciplinasHistorico[j].contains(disciplinasObrigatorias[i])&&disciplinasAprovadasReprovadas[i]!=1) {
 						disciplinasAprovadasReprovadas[i]=2;
-						controle = 1;}
+						controle = 1;
+						}
 					}
+			}
+			if (disciplinasHistorico[j].contains("COEFICIENTE DE RENDIMENTO GERAL")) {
+				CR = Double.parseDouble(disciplinasHistorico[j].substring(97).replaceAll(",", "."));
 			}
 		}
 		return disciplinasAprovadasReprovadas;
 	}
-private int [] disciplinasAprovadasReprovadas = {
-		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-};
-private final String [] disciplinasObrigatorias = {
-		"ADMINISTRAÇÃO FINANCEIRA",
-		"ÁLGEBRA LINEAR",
-		"ANÁLISE DE ALGORITMO",
-		"ANÁLISE DE SISTEMAS",
-		"ANÁLISE EMPRESARIAL E ADMIN",
-		"BANCO DE DADOS I ",
-		"BANCO DE DADOS II",
-		"CÁLCULO DIFERENCIAL E INTEGRAL I ",
-		"CÁLCULO DIFERENCIAL E INTEGRAL II",
-		"DESENVOLVIMENTO DE PÁGINAS WEB",
-		"EMPREENDEDORISMO",
-		"ESTATÍSTICA",
-		"ESTRUTURAS DE DADOS I ",
-		"ESTRUTURAS DE DADOS II",
-		"ESTRUTURAS DISCRETAS",
-		"FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO",
-		"GERÊNCIA DE PROJ. DE INFORMAT",
-		"INTERAÇÃO HUMANO-COMPUTADOR",
-		"INTRODUÇÃO À LÓGICA COMPUTAC",
-		"LINGUAG. FORMAIS E AUTÔMATOS",
-		"MATEMÁTICA BÁSICA",
-		"ORGANIZAÇÃO DE COMPUTADORES",
-		"PROBABILIDADE",
-		"PROCESSOS DE SOFTWARE",
-		"PROGRAMAÇÃO MODULAR",
-		"PROJETO DE GRADUAÇÃO I ",
-		"PROJETO DE GRADUAÇÃO II",
-		"PROJETO E CONSTRUÇÃO DE SISTEMAS 4",
-		"PROJETO E CONSTRUÇÃO DE SISTEMAS COMSGBD",
-		"REDES DE COMPUTADORES I ",
-		"REDES DE COMPUTADORES II",
-		"SISTEMAS OPERACIONAIS",
-		"TÉCNICAS DE PROGRAMAÇÃO I ",
-		"TÉCNICAS DE PROGRAMAÇÃO II",
-		"TEORIAS E PRÁTICAS DISCURSIVAS",
-		"ELETIVA I ",
-		"ELETIVA II ",
-		"ELETIVA III",
-		"ELETIVA IV",
-		"OPTATIVA I ",
-		"OPTATIVA II ",
-		"OPTATIVA III ",
-		"OPTATIVA IV",
-		"OPTATIVA V ",
-		"OPTATIVA VI ",
-		"OPTATIVA VII ",
-		"OPTATIVA VIII ",
-		"ATIVIDADES CURRICULARES DE EXTENSÃO 1 ",
-		"ATIVIDADES CURRICULARES DE EXTENSÃO 2 ",
-		"ATIVIDADES CURRICULARES DE EXTENSÃO 3 ",
-		"ATIVIDADES CURRICULARES DE EXTENSÃO 4 "
-		};
-}
+	public double retornaCr() {
+		return CR;
+	}
+	public String[] getdisciplinasObrigatorias() {
+		return disciplinasObrigatorias;
+	}
+	}
+
