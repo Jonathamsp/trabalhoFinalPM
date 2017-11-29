@@ -60,10 +60,18 @@ public class AprovacaoEmDisciplinas {
 			"ATIVIDADES CURRICULARES DE EXTENSÃO 4 "
 			};
 	
+	/**
+	 * 
+	 * @param splittedString vetor de string contendo o arquivo inteiro em PDF, linha por linha.
+	 */
 	public AprovacaoEmDisciplinas(String[] splittedString) {
 		disciplinasHistorico = splittedString;
 	}
 	
+	/**
+	 * retorna um vetor ordenado de inteiros, contendo as disciplinas ordenadas que obteve aprovação ou reprovação.
+	 * @return int[];
+	 */
 	public int[] disciplinasAprovadas () {
 		int eletivas = 35;
 		int optativas = 39;
@@ -103,9 +111,16 @@ public class AprovacaoEmDisciplinas {
 		}
 		return disciplinasAprovadasReprovadas;
 	}
+	/**
+	 * retorna o valor encontrado do CR no array de String.
+	 * @return valor do CR encontrado no array de String.
+	 */
 	public double getCR() {
 		return CR;
 	}
+	/**
+	 * @return retorna as disciplinas obrigatorias ordenadas, definidas na classe.
+	 */
 	public String[] getdisciplinasObrigatorias() {
 		return disciplinasObrigatorias;
 	}

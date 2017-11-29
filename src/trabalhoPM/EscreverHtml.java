@@ -9,6 +9,16 @@ public class EscreverHtml {
 	private String[] cores= new String[51];	
 	private boolean jubilacao, integralizacao, cursando, condicaoDeFormar;
 	private double CR;
+	
+	/**
+	 * construtor da classe que escreve o HTML com a grade pintada e demais dados especificados abaixo.
+	 * @param disciplinasAprovadasReprovadas vetor ordenado contendo as disciplinas aprovadas e reprovadas.
+	 * @param jubilacao booleano contendo se a situacao do aluno e de reprovacao ou nao.
+	 * @param integralizacao booleano contendo se a situacao do aluno precisa ou nao de plano de integralizacao.
+	 * @param cursando booleano que retorna se o aluno esta ou nao cursando o minimo de disciplinas necessarias.
+	 * @param CR double contendo o CR do aluno.
+	 * @param condicaoDeFormar booleano contendo se o aluno tem condicoes de se formar no tempo especificado no curso.
+	 */
 	public EscreverHtml(int[] disciplinasAprovadasReprovadas, boolean jubilacao, boolean integralizacao, boolean cursando, double CR, boolean condicaoDeFormar) {
 		for (int i =0; i<disciplinasAprovadasReprovadas.length; i++) {
 			if (disciplinasAprovadasReprovadas[i]==0) {
@@ -28,7 +38,9 @@ public class EscreverHtml {
 		this.condicaoDeFormar = condicaoDeFormar;
 	}
 	
-	
+	/**
+	 * metodo responsavel por escrever o HTML, levando em conta os parametros sitados no construtor.
+	 */
 	public void writeHtml() {
 		 String[] disciplinasAPintar = {
 				"<rect x=\"653\" y=\"170\" width=\"105\" height=\"50\" style=\"fill:"+cores[0]+";fill-opacity:0.2;opacity:0.9;\" />\n", //AF

@@ -28,6 +28,4 @@ class AprovacaoEmDisciplinasTest {
 	public void testandoRetornoDeObrigatorias() {
 		assertEquals(disciplinasObrigatorias[0], disciplinas.getdisciplinasObrigatorias()[0]);
 	}
-	
-
 }

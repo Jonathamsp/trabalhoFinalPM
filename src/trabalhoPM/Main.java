@@ -6,8 +6,6 @@ public class Main {
 	public static void main(String[] args) {
 		PdfParser pdfConverter = new PdfParser(CAMINHO_HISTORICO_ESCOLAR);
 		AprovacaoEmDisciplinas disciplinasAprovadas = new AprovacaoEmDisciplinas(pdfConverter.getAllData());
-		for (int i = 0; i<pdfConverter.getAllData().length;i++){
-		System.out.println(pdfConverter.getAllData()[i]);}
 		Jubilacao jubilado = new Jubilacao(disciplinasAprovadas.getCR(), disciplinasAprovadas.disciplinasAprovadas(), 
 				disciplinasAprovadas.getdisciplinasObrigatorias(), pdfConverter.getAllData());
 		

@@ -5,6 +5,13 @@ public class Jubilacao {
 	int[] disciplinasAprovadas = new int[51];
 	String[] disciplinasObrigatorias;
 	String[] disciplinasHistorico;
+	/**
+	 * construtor do metodo jubilacao 
+	 * @param CR double contendo o CR do aluno.
+	 * @param disciplinasAprovadas array ordenado de inteiros contendo quais disciplinas foram aprovadas e reprovadas.
+	 * @param disciplinasObrigatorias array ordenado contendo as disciplinas obrigatorias do curso.
+	 * @param disciplinasHistorico array ordenado contendo todo o conteudo do pdf extraido, linha por linha.
+	 */
 	public Jubilacao(double CR, int [] disciplinasAprovadas, String[] disciplinasObrigatorias, String[] disciplinasHistorico) {
 		this.CR = CR;
 		this.disciplinasAprovadas = disciplinasAprovadas;
@@ -26,9 +33,6 @@ public class Jubilacao {
 					}
 				}
 			}
-		}
-		else {
-			return false;
 		}
 		return false;
 	}

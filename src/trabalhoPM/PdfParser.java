@@ -11,9 +11,17 @@ public class PdfParser{
 	private PdfReader reader;
 	private String[] errorMessage= {"error on loading text"};
 	
+	/**
+	 * construtor da classe responsavel por converter o texto do pdf em um array de String.
+	 * @param fileName contem o caminho para o arquivo pdf.
+	 */
 	public PdfParser(String fileName) {
 		this.fileName = fileName;
 	}
+	/**
+	 * metodo responsavel por retornar todo o texto contido no pdf em um array de String em letras maiusculas.
+	 * @return retorna todo o texto contido no pdf em um array de String em letras maiusculas.
+	 */
 	public String[] getAllData() {
 		try {
 			String allText="";
