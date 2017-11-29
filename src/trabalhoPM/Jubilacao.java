@@ -11,7 +11,7 @@ public class Jubilacao {
 		this.disciplinasObrigatorias = disciplinasObrigatorias;
 		this.disciplinasHistorico = disciplinasHistorico;
 	}
-	boolean jubilado() {
+	public boolean jubilado() {
 		if (CR<4) {
 			for (int i=0; i<disciplinasAprovadas.length;i++) {
 				if (disciplinasAprovadas[i]==2) {
@@ -24,9 +24,6 @@ public class Jubilacao {
 					if (numeroReprovacoes>=4) {
 						return true;
 					}
-				}
-				else {
-					return false;
 				}
 			}
 		}

@@ -1,12 +1,12 @@
 package trabalhoPM;
 
-public class AprovaçãoEmDisciplinas {
+public class AprovacaoEmDisciplinas {
 	private String[] disciplinasHistorico;
 	private int [] disciplinasAprovadasReprovadas = {
 			0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 	};
 	private double CR =0.0;
-	private final String [] disciplinasObrigatorias = {
+	public static final String [] disciplinasObrigatorias = {
 			"ADMINISTRAÇÃO FINANCEIRA",
 			"ÁLGEBRA LINEAR",
 			"ANÁLISE DE ALGORITMO",
@@ -60,7 +60,7 @@ public class AprovaçãoEmDisciplinas {
 			"ATIVIDADES CURRICULARES DE EXTENSÃO 4 "
 			};
 	
-	public AprovaçãoEmDisciplinas(String[] splittedString) {
+	public AprovacaoEmDisciplinas(String[] splittedString) {
 		disciplinasHistorico = splittedString;
 	}
 	
@@ -103,7 +103,7 @@ public class AprovaçãoEmDisciplinas {
 		}
 		return disciplinasAprovadasReprovadas;
 	}
-	public double retornaCr() {
+	public double getCR() {
 		return CR;
 	}
 	public String[] getdisciplinasObrigatorias() {
